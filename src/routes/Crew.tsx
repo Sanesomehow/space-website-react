@@ -39,30 +39,21 @@ export function Crew() {
 
   const [person, setPerson] = useState(options[0]);
   return (
-    <div className="mx-[8rem]">
-      <div className="font-[Barlow_Condensed] text-[1.75rem] tracking-[0.25rem] mx-[3.4rem] mb-[1.5rem]">
-        <span className="text-white/20 font-semibold">02</span>
-        <span className="ml-[1.5rem] text-white">MEET YOUR CREW</span>
+    <div className="min-h-screen flex flex-col w-full">
+      <div className="font-[Barlow_Condensed] text-lg text-center tracking-[0.2rem] text-lg font-extralight mb-18 md:text-start md:text-2xl md:ml-10 md:mt-10 lg:text-3xl lg:ml-40 lg:tracking-[0.25rem] lg:mb-30">
+        <span className="text-white/30 ">02</span>
+        <span className="text-white ml-7">MEET YOUR CREW</span>
       </div>
-      <div className="flex flex-row-reverse justify-around items-center">
-        <div className="w-[33.75rem] h-[42.25rem] mb-[6rem] relative overflow-hidden">
-          <div className="absolute inset-0 flex items-end justify-center">
-            <img
-              src={person.img}
-              alt={`${person.title} ${person.name}`}
-              className="max-h-full max-w-full object-contain mask-b-from-90% mask-b-to-100%"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col h-full mb-[8rem] justify-end">
-          <div className="mt-[12rem] mb-[15rem]">
-            <p className="text-white/40 font-[Bellefair] uppercase text-[2rem]">
+      <div className="flex-1 flex flex-col justify-center items-center lg:flex-row lg:items-end gap-10">
+        <div className="flex-1 flex flex-col lg:ml-35 lg:mb-25">
+          <div className="text-center mx-auto lg:text-start">
+            <p className="text-white/40 font-[Bellefair] uppercase text-xl mb-1 md:text-3xl md:mb-5 lg:text-4xl lg:mb-5">
               {person.title}
             </p>
-            <p className="w-[35rem] text-white font-[Bellefair] text-[3.5rem] uppercase pb-[1rem] text-wrap">
+            <p className="text-white font-[Bellefair] uppercase w-full text-2xl mb-6 md:text-5xl lg:text-6xl lg:mb-8">
               {person.name}
             </p>
-            <p className="w-[33.5rem] font-[Barlow] text-[1.125rem] text-[#D0D6F9] text-wrap leading-[2rem]">
+            <p className="font-[Barlow] text-[#D0D6F9] text-wrap text-md leading-7 w-9/10 mx-auto mb-25 md:text-lg md:w-15/20 md:leading-8 md:mb-15 lg:mx-0 lg:text-xl lg:w-full lg:leading-10 lg:mb-60">
               {person.text}
             </p>
           </div>
@@ -70,37 +61,46 @@ export function Crew() {
             type="single"
             value={person.path}
             onValueChange={(value) => value}
-            className="flex gap-10 "
+            className="flex gap-5 justify-center lg:justify-start lg:gap-12"
           >
             <ToggleGroupItem
               value="commander"
-              className="rounded-full w-4 h-4 bg-white/20 data-[state=on]:bg-white hover:bg-white/50 transition-full duration-300"
+              className="rounded-full bg-white/20 data-[state=on]:bg-white hover:bg-white/50 transition-full duration-300 cursor-pointer w-3 h-3 lg:w-4 lg:h-4"
               onClick={() => setPerson(options[0])}
             >
               {" "}
             </ToggleGroupItem>
             <ToggleGroupItem
               value="specialist"
-              className="rounded-full w-4 h-4 bg-white/20  data-[state=on]:bg-white hover:bg-white/50 transition-full duration-300"
+              className="rounded-full bg-white/20  data-[state=on]:bg-white hover:bg-white/50 transition-full duration-300 cursor-pointer w-3 h-3 lg:w-4 lg:h-4"
               onClick={() => setPerson(options[1])}
             >
               {" "}
             </ToggleGroupItem>
             <ToggleGroupItem
               value="pilot"
-              className="rounded-full w-4 h-4 bg-white/20 data-[state=on]:bg-white hover:bg-white/50 transition-full duration-300"
+              className="rounded-full bg-white/20 data-[state=on]:bg-white hover:bg-white/50 transition-full duration-300 cursor-pointer w-3 h-3 lg:w-4 lg:h-4"
               onClick={() => setPerson(options[2])}
             >
               {" "}
             </ToggleGroupItem>
             <ToggleGroupItem
               value="engineer"
-              className="rounded-full w-4 h-4 bg-white/20 data-[state=on]:bg-white hover:bg-white/50 transition-full duration-300"
+              className="rounded-full bg-white/20 data-[state=on]:bg-white hover:bg-white/50 transition-full duration-300 cursor-pointer w-3 h-3 lg:w-4 lg:h-4"
               onClick={() => setPerson(options[3])}
             >
               {" "}
             </ToggleGroupItem>
           </ToggleGroup>
+        </div>
+        <div className="relative overflow-hidden w-7/10 mt-15 mb-8 md:mt-15 md:w-6/10 lg:w-6/16 lg:mr-35 lg:mt-0 lg:mb-25">
+          <div className="flex w-full items-end justify-center">
+            <img
+              src={person.img}
+              alt={`${person.title} ${person.name}`}
+              className="h-full w-full object-cover object-top mask-b-from-90% mask-b-to-100% "
+            />
+          </div>
         </div>
       </div>
     </div>

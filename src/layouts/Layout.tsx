@@ -15,12 +15,12 @@ import Header from '../Header';
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from "react";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 export function Layout() {
   const [activeTab, setActiveTab] = useState("home");
+  const { isMobile, isTablet } = useWindowSize();
   const location = useLocation();
-  const isMobile = window.innerWidth < 640;
-  const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024
 
   useEffect(() => {
     switch(location.pathname) {
@@ -40,7 +40,6 @@ export function Layout() {
   },[location.pathname])
 
   const getBackgroundImage = () => {
-
     switch(location.pathname) {
       case '/':
         return isMobile ? BgHomeMobile : isTablet ? BgHomeTab : BgHome;
@@ -52,16 +51,17 @@ export function Layout() {
         return isMobile ? BgTechnologyMobile : isTablet ? BgTechnologyTab : BgTechnology;
       default:
         return isMobile ? BgHomeMobile : isTablet ? BgHomeTab : BgHome;
-    } 
+    }
   }
 
   return (
-    <div
-      className="h-full bg-cover flex flex-col flex-none transition-full duration-600"
+    <div      className="h-screen w-full overflow-hidden bg-cover flex flex-col transition-full duration-600"
       style={{ backgroundImage: `url(${getBackgroundImage()})` }}
     >
-      <Header activeTab={activeTab} isMobile={isMobile} />
-      <main className="flex"><Outlet/></main>
+      <Header activeTab={activeTab} isMobile={isMobile} isTablet={isTablet} />
+      <main className="flex-1 flex justify-center w-full overflow-y-auto overflow-x-hidden">
+        <Outlet/>
+      </main>
     </div>
   );
 }

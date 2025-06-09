@@ -40,52 +40,52 @@ export function Destination() {
     ]
     const [option, setOption] = useState(options[0]);
   return (
-    <div className="mx-[10rem] my-[2rem]">
+    <div className="flex flex-col lg:mx-40">
 
-      <div className="text-white font-[Barlow_Condensed] text-[1.75rem] tracking-[0.25rem]">
-        <span className="text-white/30">01</span>
-        <span className="ml-[1.5rem]">PICK YOUR DESTINATION</span>
+      <div className="text-white font-[Barlow_Condensed] tracking-[0.2rem] text-lg font-extralight text-center mt-8 md:text-start md:mx-10 md:mt-10 md:text-2xl lg:mx-0 lg:mb-30 lg:text-3xl">
+        <span className="text-white/30 ">01</span>
+        <span className="ml-7">PICK YOUR DESTINATION</span>
       </div>
 
-      <div className="flex  my-[8rem] justify-around ">
-        <div className="w-[35rem] h-[25rem]">
-          <img src={option.img} alt="" className="w-[35rem] h-[35rem]" />
+      <div className="flex flex-col items-center lg:flex-row lg:grow lg:gap-25">
+        <div className="flex  items-center justify-center w-9/20 my-14 md:w-7/18 md:my-20 lg:my-0 lg:flex-2/4">
+          <img src={option.img} alt="" className="" />
         </div>
 
-        <div className="">
-            <ToggleGroup type="single" value={option.path} onValueChange={(value) => value } className="flex gap-[1rem] text-[#D0D6F9] font-[Barlow_Condensed] tracking-[0.2rem] pb-[3.313rem]">
-                <ToggleGroupItem value="moon" className="text-[1rem]  !bg-transparent !rounded-none data-[state=on]:text-white data-[state=on]:border-b-4 hover:border-b-4 hover:border-white/30" onClick={()=>{setOption(options[0])}}>
+        <div className="text-center flex flex-col items-center lg:items-start lg:text-start flex-2/4">
+            <ToggleGroup type="single" value={option.path} onValueChange={(value) => value } className="flex text-[#D0D6F9] font-[Barlow_Condensed] gap-6 tracking-[0.125rem] pb-10">
+                <ToggleGroupItem value="moon" className="text-[1rem] font-thin !bg-transparent !rounded-none data-[state=on]:text-white data-[state=on]:border-b-4 hover:border-b-4 hover:border-white/30" onClick={()=>{setOption(options[0])}}>
                     MOON
                 </ToggleGroupItem>
-                <ToggleGroupItem value="mars" className="text-[1rem] !bg-transparent !rounded-none data-[state=on]:text-white data-[state=on]:border-b-4 hover:border-b-4 hover:border-white/30" onClick={()=>{setOption(options[1])}}>
+                <ToggleGroupItem value="mars" className="text-[1rem] font-thin !bg-transparent !rounded-none data-[state=on]:text-white data-[state=on]:border-b-4 hover:border-b-4 hover:border-white/30" onClick={()=>{setOption(options[1])}}>
                     MARS
                 </ToggleGroupItem>
-                <ToggleGroupItem value="europa" className="text-[1rem]  !bg-transparent !rounded-none data-[state=on]:text-white data-[state=on]:border-b-4 hover:border-b-4 hover:border-white/30" onClick={()=>{setOption(options[2])}}>
+                <ToggleGroupItem value="europa" className="text-[1rem] font-thin !bg-transparent !rounded-none data-[state=on]:text-white data-[state=on]:border-b-4 hover:border-b-4 hover:border-white/30" onClick={()=>{setOption(options[2])}}>
                     EUROPA
                 </ToggleGroupItem>
-                <ToggleGroupItem value="titan" className="text-[1rem]  !bg-transparent !rounded-none data-[state=on]:text-white data-[state=on]:border-b-4 hover:border-b-4 hover:border-white/30" onClick={()=>{setOption(options[3])}}>
+                <ToggleGroupItem value="titan" className="text-[1rem] font-thin !bg-transparent !rounded-none data-[state=on]:text-white data-[state=on]:border-b-4 hover:border-b-4 hover:border-white/30" onClick={()=>{setOption(options[3])}}>
                     TITAN
                 </ToggleGroupItem>
             </ToggleGroup>
-          <p className="font-[Bellefair] text-white text-[6.25rem]">{option.title}</p>
-          <p className="w-[27rem] font-[Barlow] text-[#D0D6F9] text-[1.125rem] text-wrap leading-8">
+          <p className="font-[Bellefair] text-white text-6xl mb-6 md:text-7xl">{option.title}</p>
+          <p className="font-[Barlow] text-[#D0D6F9] w-9/10 text-base text-wrap leading-7 tracking-wide md:w-17/24 md:font-extralight lg:w-29/36">
             {option.text}
           </p>
-          <hr className="w-full my-[2.5rem]" />
-          <div className="flex gap-25">
-            <div className="">
-              <p className="text-[#D0D6F9] text-[0.875rem] font-[Barlow_condensed] tracking-[0.125rem]">
+          <hr className="w-9/10 border-t-2 border-white/20 mt-5 md:w-17/24 md:mt-6" />
+          <div className="flex flex-col gap-5 my-4 md:flex-row md:gap-30 md:my-6">
+            <div className="flex flex-col gap-1">
+              <p className="text-[#D0D6F9] font-[Barlow_condensed] text-sm font-extralight tracking-[0.125rem]">
                 AVG. DISTANCE
               </p>
-              <p className="text-white text-[1.75rem] font-[Bellefair]">
+              <p className="text-white font-[Bellefair] text-[1.75rem] font-light">
                 {option.distance}
               </p>
             </div>
-            <div>
-              <p className="text-[#D0D6F9] text-[0.875rem] font-[Barlow_Condensed] tracking-[0.125rem]">
+            <div className="flex flex-col gap-1">
+              <p className="text-[#D0D6F9] font-[Barlow_Condensed] text-sm font-extralight tracking-[0.125rem]">
                 EST. TRAVEL TIME
               </p>
-              <p className="text-white text-[1.75rem] font-[Bellefair]">
+              <p className="text-white text- font-[Bellefair] text-[1.75rem] font-light">
                 {option.time}
               </p>
             </div>
