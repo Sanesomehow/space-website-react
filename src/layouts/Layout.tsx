@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import BgHome from "../assets/home/background-home-desktop.jpg";
 import BgHomeTab from "../assets/home/background-home-tablet.jpg";
 import BgHomeMobile from "../assets/home/background-home-mobile.jpg";
@@ -12,7 +12,6 @@ import BgTechnology from "../assets/technology/background-technology-desktop.jpg
 import BgTechnologyTab from "../assets/technology/background-technology-tablet.jpg";
 import BgTechnologyMobile from "../assets/technology/background-technology-mobile.jpg";
 import Header from '../Header';
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useWindowSize } from "../hooks/useWindowSize";
